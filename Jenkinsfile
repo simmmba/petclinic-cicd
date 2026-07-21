@@ -6,6 +6,8 @@ pipeline {
         ACCOUNT_ID = '450444046629'
         ECR_REPO = 'user29-petclinic'
         IMAGE_TAG = 'v1'
+        AWS_SHARED_CREDENTIALS_FILE = '/var/jenkins_home/.aws/credentials'
+        AWS_PAGER = ''
     }
 
     stages {
