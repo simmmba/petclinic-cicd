@@ -5,7 +5,7 @@ pipeline {
         AWS_REGION = 'eu-north-1'
         ACCOUNT_ID = '450444046629'
         ECR_REPO = 'user29-petclinic'
-        IMAGE_TAG = 'v1'
+        IMAGE_TAG = 'v2'
         AWS_SHARED_CREDENTIALS_FILE = '/var/jenkins_home/.aws/credentials'
         AWS_PAGER = ''
     }
@@ -22,6 +22,14 @@ pipeline {
             steps {
                 sh 'chmod +x mvnw'
                 sh './mvnw clean package -DskipTests'
+            }
+        }
+
+        stage('Trivy Scan') {
+            steps {
+                sh '''
+                trivy fs .
+                '''
             }
         }
 
