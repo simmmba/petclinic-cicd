@@ -76,9 +76,7 @@ pipeline {
 
             	git commit -m "Update image to build $IMAGE_TAG" || true
 
-            	git remote set-url origin https://$GIT_USER:$GIT_TOKEN@github.com/simmmba/petclinic-cicd.git
-
-           	 git push origin main
+           	git push https://$GIT_USER:$GIT_TOKEN@github.com/simmmba/petclinic-cicd.git HEAD:main
             	'''
         	}
     		}
